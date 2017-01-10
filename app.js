@@ -7,7 +7,7 @@ var app = express();
 
 app.use(express.cookieParser('S3CRE7'));
 app.use(express.cookieSession());
-app.use(app.router);
+//app.use(app.router);
 
 // Require Routes js
 var routesHome = require('./routes/home');
