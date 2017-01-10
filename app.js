@@ -5,6 +5,10 @@ var port = process.env.PORT || 3000;
 
 var app = express();
 
+app.use(express.cookieParser('S3CRE7'));
+app.use(express.cookieSession());
+app.use(app.router);
+
 // Require Routes js
 var routesHome = require('./routes/home');
 
