@@ -32,7 +32,7 @@ app.get('/oauthcallback', function(req, res) {
   global.org.authenticate({code: req.query.code}, function(err, resp){
     if(!err) {
       console.log('Access Token: ' + resp.access_token + ' Refresh Token: ' + resp.refresh_token);
-      console.log('SQL: ' + app.locals.DATABASE_URL);
+      console.log('SQL: ' + process.env.DATABASE_URL);
     } else {
       console.log('Error: ' + err.message);
     }
