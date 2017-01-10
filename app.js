@@ -2,12 +2,17 @@
 var express = require('express');
 var oauth = require('./lib/oAuth/oauth');
 var port = process.env.PORT || 3000;
+var env = require('node-env-file');
 
 var app = express();
 
-app.use(express.cookieParser('S3CRE7'));
-app.use(express.cookieSession());
-//app.use(app.router);
+app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false })); //app.use(app.router);
+
+// Load environment variables for localhost
+try {
+	env(__dirname + '/process.env');
+} catch (e) {console.log("error ", e);}
+
 
 // Require Routes js
 var routesHome = require('./routes/home');
