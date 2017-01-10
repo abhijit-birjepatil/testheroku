@@ -23,13 +23,6 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/static'));
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-  next();
-});
-
 
 app.get('/oauth', function(req, res) {
 	res.redirect(global.org.getAuthUri());
@@ -39,6 +32,7 @@ app.get('/oauthcallback', function(req, res) {
   global.org.authenticate({code: req.query.code}, function(err, resp){
     if(!err) {
       console.log('Access Token: ' + resp.access_token + ' Refresh Token: ' + resp.refresh_token);
+      console.log('SQL: ' + app.locals.DATABASE_URL);
     } else {
       console.log('Error: ' + err.message);
     }
