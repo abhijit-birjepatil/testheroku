@@ -39,7 +39,7 @@
 				$Lightning.createComponent("forceChatter:feed", {type: type, subjectId: subjectId}, "renderLtngComp"); 
 			}
 
-			function createChatterFeed(type, subjectId) {
+			function showChat(type, subjectId) {
 				document.getElementById("renderLtngComp").innerHTML = "";
 				$Lightning.createComponent("c:ltgoutchat", {type: type, subjectId: subjectId}, "renderLtngComp"); 
 			}
