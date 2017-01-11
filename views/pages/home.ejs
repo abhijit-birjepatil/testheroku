@@ -3,6 +3,7 @@
   <head>
      <% include ../partials/ldOut %>
 	 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	 <script type='text/javascript' src='https://c.la2w2.salesforceliveagent.com/content/g/js/38.0/deployment.js'></script>	 
   </head>
   <body class="slds">
     <header>
@@ -17,6 +18,10 @@
 				<button id="sfAccountList" class="btn btn-primary btn-lg" onclick="showAccountList('NEWS')">
 					Show Account List
 				</button>
+				<button id="sfchat" class="btn btn-primary btn-lg" onclick="showChat('NEWS')">
+					Show Account List
+				</button>
+
 			</div>
 			<div id="renderLtngComp"/>
 		</div>
@@ -33,6 +38,12 @@
 				document.getElementById("renderLtngComp").innerHTML = "";
 				$Lightning.createComponent("forceChatter:feed", {type: type, subjectId: subjectId}, "renderLtngComp"); 
 			}
+
+			function createChatterFeed(type, subjectId) {
+				document.getElementById("renderLtngComp").innerHTML = "";
+				$Lightning.createComponent("c:ltgoutchat", {type: type, subjectId: subjectId}, "renderLtngComp"); 
+			}
+
 
 			function showAccountList(type, subjectId) {
 				document.getElementById("renderLtngComp").innerHTML = "";
