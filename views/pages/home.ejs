@@ -43,7 +43,7 @@
 			function showChat(type, subjectId) {
 				document.getElementById("renderLtngComp").innerHTML = "";
 				$Lightning.createComponent("c:ltgoutchat", {type: type, subjectId: subjectId}, "renderLtngComp"); 
-				setTimeOut(function(){ 
+				window.setTimeOut(function(){ 
 				var script = document.createElement("script");
 				script.src = "https://c.la2w2.salesforceliveagent.com/content/g/js/38.0/deployment.js";
 				document.body.appendChild( script );				
